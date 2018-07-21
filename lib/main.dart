@@ -8,11 +8,9 @@ import 'quakes.dart';
 void main() async {
   Map _data = await getQuakes();
 
-  print(_data);
-
   runApp(new MaterialApp(
     title: 'Quakes',
-    home: new Quakes(),
+    home: new Quakes(_data),
   ));
 }
 
