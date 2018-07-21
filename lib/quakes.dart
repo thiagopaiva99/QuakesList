@@ -59,6 +59,9 @@ class Quakes extends StatelessWidget {
                   ),
                 ),
               ),
+              onTap: () {
+                _showAlertMessage(context, "${_features[index]['properties']['type']}");
+              },
             );
           },
         ),
@@ -66,3 +69,20 @@ class Quakes extends StatelessWidget {
     );
   }
 }
+
+void _showAlertMessage(BuildContext context, String message) {
+  var alert = new AlertDialog(
+    title: new Text('Quakes'),
+    content: new Text(message),
+    actions: <Widget>[
+      new FlatButton(onPressed: () {
+        Navigator.pop(context);
+      },
+          child: new Text('OK!'))
+    ],
+  );
+
+  showDialog(context: context, child: alert);
+}
+
+
