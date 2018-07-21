@@ -22,9 +22,27 @@ class Quakes extends StatelessWidget {
           itemCount: this._features.length,
           padding: const EdgeInsets.all(15.0),
           itemBuilder: (BuildContext context, int position) {
+            if (position.isOdd) return new Divider();
+
+            final index = position ~/ 2;
+
             return new ListTile(
               title: new Text(
-                "${_features[position]['properties']['place']}"
+                "Mag: ${_features[index]['properties']['mag']}",
+                style: new TextStyle(
+                  fontSize: 14.5,
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w500
+                ),
+              ),
+              subtitle: new Text(
+                "${_features[index]['properties']['place']}",
+                style: new TextStyle(
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey,
+                  fontStyle: FontStyle.italic
+                ),
               ),
             );
           },
