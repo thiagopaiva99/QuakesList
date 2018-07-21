@@ -3,26 +3,15 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'quakes.dart';
+
 void main() async {
+  List _quakes = await getQuakes();
+
   runApp(new MaterialApp(
     title: 'Quakes',
     home: new Quakes(),
   ));
-}
-
-class Quakes extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
-          'Quakes'
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.red,
-      ),
-    );
-  }
 }
 
 Future<List> getQuakes() async {
