@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Quakes extends StatelessWidget {
   List _features;
@@ -25,10 +26,12 @@ class Quakes extends StatelessWidget {
             if (position.isOdd) return new Divider();
 
             final index = position ~/ 2;
+            
+            var date = new DateTime.fromMicrosecondsSinceEpoch(_features[index]['properties']['time'] * 1000, isUtc: true);
 
             return new ListTile(
               title: new Text(
-                "Mag: ${_features[index]['properties']['mag']}",
+                "At: $date",
                 style: new TextStyle(
                   fontSize: 14.5,
                   color: Colors.orange,
