@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Quakes extends StatelessWidget {
-  Map _data;
+  List _features;
 
   Quakes(_data) {
-    this._data = _data;
+    this._features = _data['features'];
   }
 
   @override
@@ -19,12 +19,12 @@ class Quakes extends StatelessWidget {
       ),
       body: new Center(
         child: new ListView.builder(
-          itemCount: this._data['features'].length,
+          itemCount: this._features.length,
           padding: const EdgeInsets.all(15.0),
           itemBuilder: (BuildContext context, int position) {
             return new ListTile(
               title: new Text(
-                "${_data['features'][position]['properties']['place']}"
+                "${_features[position]['properties']['place']}"
               ),
             );
           },
