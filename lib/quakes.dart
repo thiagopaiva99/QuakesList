@@ -26,8 +26,9 @@ class Quakes extends StatelessWidget {
             if (position.isOdd) return new Divider();
 
             final index = position ~/ 2;
-            
-            var date = new DateTime.fromMicrosecondsSinceEpoch(_features[index]['properties']['time'] * 1000, isUtc: true);
+
+            var format = new DateFormat("dd/MM/yyyy HH:mm");
+            var date = format.format(new DateTime.fromMicrosecondsSinceEpoch(_features[index]['properties']['time'] * 1000, isUtc: true));
 
             return new ListTile(
               title: new Text(
