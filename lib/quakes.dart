@@ -44,6 +44,17 @@ class Quakes extends StatelessWidget {
                   fontStyle: FontStyle.italic
                 ),
               ),
+              leading: new CircleAvatar(
+                backgroundColor: Colors.red,
+                child: new Text(
+                  "${_features[index]['properties']['mag']}",
+                  style: new TextStyle(
+                    fontSize: 16.5,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                ),
+              ),
             );
           },
         ),
